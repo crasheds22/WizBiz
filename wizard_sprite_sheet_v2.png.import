@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wizard_sprite_sheet_v1.png-84ca351fcefefcb0e16edcf433d482c9.stex"
+path="res://.import/wizard_sprite_sheet_v2.png-897bef6d9292cb7a332165c97f153e65.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://wizard_sprite_sheet_v1.png"
-dest_files=[ "res://.import/wizard_sprite_sheet_v1.png-84ca351fcefefcb0e16edcf433d482c9.stex" ]
+source_file="res://wizard_sprite_sheet_v2.png"
+dest_files=[ "res://.import/wizard_sprite_sheet_v2.png-897bef6d9292cb7a332165c97f153e65.stex" ]
 
 [params]
 
