@@ -8,6 +8,7 @@ const GRAVITY = 200
 const JUMP_FORCE = 128
 
 var motion = Vector2.ZERO
+var doubleJumped = false
 
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
@@ -26,6 +27,8 @@ func _physics_process(delta):
 	motion.y += GRAVITY * delta
 	
 	if is_on_floor():
+		doubleJumped = false
+		
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, FRICTION)
 		
@@ -33,6 +36,11 @@ func _physics_process(delta):
 			motion.y = -JUMP_FORCE
 			animationPlayer.play("Jump")
 	else:
+		if Input.is_action_just_pressed("ui_up") and !doubleJumped:
+			motion.y += -JUMP_FORCE
+			animationPlayer.play("Double jump")
+			doubleJumped = true
+		
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE / 2:
 			motion.y = -JUMP_FORCE / 2
 			animationPlayer.play("Falling")
