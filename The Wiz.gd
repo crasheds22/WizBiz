@@ -32,16 +32,16 @@ func _physics_process(delta):
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, FRICTION)
 		
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("jump"):
 			motion.y = -JUMP_FORCE
 			animationPlayer.play("Jump")
 	else:
-		if Input.is_action_just_pressed("ui_up") and !doubleJumped:
-			motion.y += -JUMP_FORCE
+		if Input.is_action_just_pressed("jump") and !doubleJumped:
+			motion.y = -JUMP_FORCE
 			animationPlayer.play("Double jump")
 			doubleJumped = true
 		
-		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE / 2:
+		if Input.is_action_just_released("jump") and motion.y < -JUMP_FORCE / 2:
 			motion.y = -JUMP_FORCE / 2
 			animationPlayer.play("Falling")
 		
