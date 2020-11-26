@@ -17,6 +17,9 @@ var postCastTimer = 0
 onready var sprite 			= $Sprite
 onready var animationPlayer = $AnimationPlayer
 
+func _ready():
+	pass
+
 func anim_control(delta):
 	if Input.is_action_pressed("fire"):
 		postCastTimer = 0
@@ -64,6 +67,13 @@ func _process(delta):
 	x_input = Input.get_action_strength("right") - Input.get_action_strength("left")
 	
 	anim_control(delta)
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.has_method("getHurt"):
+			collision.collider.getHurt()
+		
+	
 
 func _physics_process(delta):
 	if x_input != 0:
@@ -93,3 +103,8 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE)
 	
 	motion = move_and_slide(motion, Vector2.UP)
+	
+
+
+func _on_Enemy_enemy_collision():
+	animationPlayer.play("Hurt")

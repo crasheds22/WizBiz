@@ -135,7 +135,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "Hurt"
-length = 0.2
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -143,10 +143,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 18, 19 ]
+"values": [ 18, 19, 19 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -268,7 +268,6 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 vframes = 12
 hframes = 6
-frame = 55
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -7 )
