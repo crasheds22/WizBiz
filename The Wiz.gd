@@ -13,6 +13,27 @@ var doubleJumped = false
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
 
+func anim_control(delta):
+	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	
+	if is_on_floor():
+		if x_input != 0:
+			animationPlayer.play("Walk")
+		else:
+			animationPlayer.play("Idle")
+	else:
+		if motion.y > 0:
+			animationPlayer.play("Falling")
+		else:
+			if doubleJumped:
+				animationPlayer.play("Double jump")
+			else:
+				animationPlayer.play("Jump")
+	
+
+func _process(delta):
+	anim_control(delta)
+
 func _physics_process(delta):
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
@@ -20,9 +41,6 @@ func _physics_process(delta):
 		motion.x += x_input * ACCELERATION * delta
 		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 		sprite.flip_h = x_input < 0
-		animationPlayer.play("Walk")
-	else:
-		animationPlayer.play("Idle")
 	
 	motion.y += GRAVITY * delta
 	
@@ -34,16 +52,13 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("jump"):
 			motion.y = -JUMP_FORCE
-			animationPlayer.play("Jump")
 	else:
 		if Input.is_action_just_pressed("jump") and !doubleJumped:
 			motion.y = -JUMP_FORCE
-			animationPlayer.play("Double jump")
 			doubleJumped = true
 		
 		if Input.is_action_just_released("jump") and motion.y < -JUMP_FORCE / 2:
 			motion.y = -JUMP_FORCE / 2
-			animationPlayer.play("Falling")
 		
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE)

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 7 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "Cast spell"
 length = 0.2
 tracks/0/type = "value"
@@ -22,8 +22,7 @@ tracks/0/keys = {
 "values": [ 12, 13 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Death"
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -39,7 +38,7 @@ tracks/0/keys = {
 "values": [ 66, 67, 68, 69, 70, 71 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "Double jump"
 length = 0.1
 tracks/0/type = "value"
@@ -55,7 +54,7 @@ tracks/0/keys = {
 "values": [ 36 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "Double jump cast"
 length = 0.2
 tracks/0/type = "value"
@@ -71,8 +70,7 @@ tracks/0/keys = {
 "values": [ 42, 43 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Falling"
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -87,8 +85,7 @@ tracks/0/keys = {
 "values": [ 48, 49 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Falling cast"
+[sub_resource type="Animation" id=7]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -103,7 +100,7 @@ tracks/0/keys = {
 "values": [ 54, 55 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "Hurt"
 length = 0.2
 tracks/0/type = "value"
@@ -119,9 +116,10 @@ tracks/0/keys = {
 "values": [ 18, 19 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=9]
 resource_name = "Idle"
-length = 0.2
+length = 0.6
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -129,14 +127,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "Jump"
+[sub_resource type="Animation" id=10]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -151,8 +148,7 @@ tracks/0/keys = {
 "values": [ 24 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Jump cast"
+[sub_resource type="Animation" id=11]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -167,8 +163,7 @@ tracks/0/keys = {
 "values": [ 30, 31 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Phase shift"
+[sub_resource type="Animation" id=12]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -183,9 +178,9 @@ tracks/0/keys = {
 "values": [ 60, 61, 62, 63, 62, 61, 60 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "Walk"
-length = 0.4
+[sub_resource type="Animation" id=13]
+length = 1.2
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -193,7 +188,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 6, 7, 8, 9 ]
@@ -207,22 +202,22 @@ position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 vframes = 12
 hframes = 6
-frame = 1
+frame = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -7 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Cast spell" = SubResource( 10 )
-anims/Death = SubResource( 2 )
-"anims/Double jump" = SubResource( 7 )
-"anims/Double jump cast" = SubResource( 6 )
-anims/Falling = SubResource( 5 )
-"anims/Falling cast" = SubResource( 4 )
-anims/Hurt = SubResource( 11 )
-anims/Idle = SubResource( 13 )
-anims/Jump = SubResource( 9 )
-"anims/Jump cast" = SubResource( 8 )
-"anims/Phase shift" = SubResource( 3 )
-anims/Walk = SubResource( 12 )
+"anims/Cast spell" = SubResource( 2 )
+anims/Death = SubResource( 3 )
+"anims/Double jump" = SubResource( 4 )
+"anims/Double jump cast" = SubResource( 5 )
+anims/Falling = SubResource( 6 )
+"anims/Falling cast" = SubResource( 7 )
+anims/Hurt = SubResource( 8 )
+anims/Idle = SubResource( 9 )
+anims/Jump = SubResource( 10 )
+"anims/Jump cast" = SubResource( 11 )
+"anims/Phase shift" = SubResource( 12 )
+anims/Walk = SubResource( 13 )
