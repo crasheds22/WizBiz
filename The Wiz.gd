@@ -14,6 +14,8 @@ var doubleJumped = false
 var x_input = 0
 var postCastTimer = 0
 
+var MagicMissile = preload("res://MagicMissile.tscn")
+
 onready var sprite 			= $Sprite
 onready var animationPlayer = $AnimationPlayer
 
@@ -68,11 +70,10 @@ func _process(delta):
 	
 	anim_control(delta)
 	
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.has_method("getHurt"):
-			collision.collider.getHurt()
-		
+	if Input.is_action_just_released("fire"):
+		var mm = MagicMissile.instance()
+		mm.start($Position2D.global_position, 0)
+		get_parent().add_child(mm)
 	
 
 func _physics_process(delta):
