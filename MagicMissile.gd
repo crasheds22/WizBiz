@@ -20,4 +20,4 @@ func _physics_process(delta):
 	if collision:
 		if collision.collider.has_method("getHurt"):
 			collision.collider.getHurt()
-		queue_free()
+		queue_free();
