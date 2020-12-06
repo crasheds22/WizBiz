@@ -10,16 +10,22 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "MainInstances",
+"language": "GDScript",
+"path": "res://Singletons/MainInstances.gd"
+}, {
+"base": "Resource",
 "class": "MapData",
 "language": "GDScript",
-"path": "res://MapData.gd"
+"path": "res://Singletons/MapData.gd"
 }, {
 "base": "Resource",
 "class": "PlayerStats",
 "language": "GDScript",
-"path": "res://PlayerStats.gd"
+"path": "res://Singletons/PlayerStats.gd"
 } ]
 _global_script_class_icons={
+"MainInstances": "",
 "MapData": "",
 "PlayerStats": ""
 }
@@ -27,12 +33,13 @@ _global_script_class_icons={
 [application]
 
 config/name="WizBiz"
-run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://GameWorld/TestWorld.tscn"
 
 [autoload]
 
-ResourceLoader="*res://ResourceLoader.gd"
+ResourceLoader="*res://Singletons/ResourceLoader.gd"
+Utils="*res://Singletons/Utils.gd"
+Events="*res://Singletons/Events.gd"
 
 [display]
 
@@ -101,6 +108,18 @@ lock={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="PlayerHitBox"
+2d_physics/layer_5="PlayerHurtBox"
+2d_physics/layer_6="EnemyHitBox"
+2d_physics/layer_7="EnemyHurtBox"
+2d_physics/layer_8="NeutralHitBox"
+2d_physics/layer_9="NeutralHurtBox"
 
 [rendering]
 
