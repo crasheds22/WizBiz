@@ -8,16 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "MainInstances",
+"language": "GDScript",
+"path": "res://Singletons/MainInstances.gd"
+}, {
+"base": "Resource",
+"class": "MapData",
+"language": "GDScript",
+"path": "res://Singletons/MapData.gd"
+}, {
+"base": "Resource",
+"class": "PlayerStats",
+"language": "GDScript",
+"path": "res://Singletons/PlayerStats.gd"
+} ]
 _global_script_class_icons={
-
+"MainInstances": "",
+"MapData": "",
+"PlayerStats": ""
 }
 
 [application]
 
 config/name="WizBiz"
-run/main_scene="res://World.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://GameWorld/TestWorld.tscn"
+
+[autoload]
+
+ResourceLoader="*res://Singletons/ResourceLoader.gd"
+Utils="*res://Singletons/Utils.gd"
+Events="*res://Singletons/Events.gd"
 
 [display]
 
@@ -27,6 +49,29 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [input]
 
@@ -63,6 +108,18 @@ lock={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="PlayerHitBox"
+2d_physics/layer_5="PlayerHurtBox"
+2d_physics/layer_6="EnemyHitBox"
+2d_physics/layer_7="EnemyHurtBox"
+2d_physics/layer_8="NeutralHitBox"
+2d_physics/layer_9="NeutralHurtBox"
 
 [rendering]
 

@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://HUD/PowerBox.gd" type="Script" id=1]
+[ext_resource path="res://HUD/Textures/hud_sheet_v2.png" type="Texture" id=2]
+
+
+
+
+[node name="PowerBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 3
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 64 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 21, 8 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 3
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 64 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 34, 8 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 3
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 64 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 47, 8 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 3
+region_enabled = true
+region_rect = Rect2( 0, 0, 48, 64 )
